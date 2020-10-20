@@ -8,7 +8,7 @@ const board = (props) => {
 		const card = document.getElementById(card_id)
 		card.style.display = 'block'
 
-		e.target.apendChild(card);
+		e.target.appendChild(card);
 	}
 
 	const dragOver = e => {

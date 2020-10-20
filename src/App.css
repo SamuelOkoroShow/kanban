@@ -2,30 +2,44 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  
+
 }
 
-.App-header {
-  background-color: #f2f2f2;
-  min-height: 100vh;
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width:768px;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  padding:15px;
+}
+.board {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: '#333';
+  width:100%;
+  max-width: 300px;
+  background-color: #333;
+  padding: 15px;
+  height: 100%;
+  min-height: 300px;
 }
+.board .card {
+  padding: 15px 25px;
+  background-color: #fff;
+  cursor: pointer;
+  margin-bottom: 15px;
 
-.App-link {
-  color: #61dafb;
 }
 
 .displayLine {
@@ -61,16 +75,6 @@ color: #3F3939;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.105004);
   border-radius: 4px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 .statuses{
   padding: 14px;
