@@ -28,14 +28,14 @@ body {
   display: flex;
   flex-direction: column;
   width:100%;
-  max-width: 300px;
-  background-color: #333;
+  max-width: 350px;
+  background-color: #fff;
   padding: 15px;
   height: 100%;
   min-height: 300px;
 }
 .board .card {
-  padding: 15px 25px;
+  padding: 0;
   background-color: #fff;
   cursor: pointer;
   margin-bottom: 15px;
@@ -74,6 +74,18 @@ color: #3F3939;
   box-sizing: border-box;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.105004);
   border-radius: 4px;
+  text-align: left;
+  padding:7px;
+}
+
+.longform {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+
+color: #3F3939;
 }
 
 .statuses{

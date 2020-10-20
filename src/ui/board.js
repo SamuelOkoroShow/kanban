@@ -9,6 +9,8 @@ const board = (props) => {
 		card.style.display = 'block'
 
 		e.target.appendChild(card);
+		console.log(props);
+		props.updateArray(card.id);
 	}
 
 	const dragOver = e => {
