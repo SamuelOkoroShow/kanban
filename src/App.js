@@ -4,6 +4,7 @@ import './ui/bootstrap.css'
 import './App.css';
 import Statuses from './ui/statuses'
 import StatusBar from './ui/statusBar'
+import {CSSTransition} from 'react-transition-group'
 
 
 var arr1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
@@ -25,8 +26,11 @@ function App() {
 }
 
 function DropdownMenu() {
+
+	const [activeMenu, setActiveMenu] = useState('main');
+
 	function DropdownItem(props) {
-		return(<a href="#" className='menu-item'>
+		return(<a href="#" className='menu-item' onClick = {() => props.goToMenu && setActiveMenu(props.goToMenu)}>
 		<span className='icon-button'>{props.leftIcon}</span>
 		{props.children}
 		<span className = "icon-button">{props.rightIcon}</span>
@@ -35,11 +39,25 @@ function DropdownMenu() {
 	}
 
 	return(<div className="dropdown">
-	<DropdownItem>My Profile</DropdownItem>
-	<DropdownItem
-		leftIcon = "😇"
-		rightIcon = "😇">
-		</DropdownItem>
+	<CSSTransition in={activeMenu === 'main'} className='menu-primary' unmountOnExit timeout = {500}>
+		<div className = 'menu'>
+			<DropdownItem>My Profile</DropdownItem>
+			<DropdownItem
+				goToMenu = "settings"
+				leftIcon = "😇"
+				rightIcon = "😇">
+				</DropdownItem>
+		</div>
+		</CSSTransition>
+		<CSSTransition in={activeMenu === 'settings'} className="menu-secondary" unmountOnExit timeout = {500}>
+		<div className = 'menu'>
+			<DropdownItem
+				goToMenu = 'main'
+				rightIcon = "😇">
+				</DropdownItem>
+				<DropdownItem>Settings</DropdownItem>
+		</div>
+	</CSSTransition>
 	</div>)
 }
 
