@@ -28,7 +28,8 @@ function Kanban() {
 	const [searchField, setSearch] = useState("")
 
 const setSearchWords= (item) => {
-	console.log(item)
+	//console.log(item)
+	setSearch(item)
 }
 const addItem = (item) => {
     
@@ -47,7 +48,7 @@ console.log(arr2State);
 	return(<div className="App container">
     <StatusBar setSearchWords={setSearchWords} />
 	    <div className='flexbox' >
-		   	<Statuses color = "#D8D8D8;" title = "Requested" arr = {arr1State} />
+		   	<Statuses searchWords = {searchField} color = "#D8D8D8;" title = "Requested" arr = {arr1State} />
 		   	<Statuses color = "#FFCCD3;" title = "Edit Requested"  arr = {arr2State} updateArray={addItem} />
 		   	<Statuses color = "#FBEDCE;" title = "In Revision"  arr = {inRevisonArrState} updateArray={addItem} />
 	    </div>

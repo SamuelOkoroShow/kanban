@@ -2,7 +2,9 @@ import React from 'react';
 import Board from './board'
 import Card from './card'
 const statuses = (props) => {
+  let sortedBlogs = props.arr.filter((words) => {return words >= props.searchWords});
   return (
+
     <div className='col-sm-4 statuses'>
     <table>
       <tbody className="tbody">
@@ -16,7 +18,7 @@ const statuses = (props) => {
    	arr = {props.arr}
     {...props}
    	 >
-   	 {props.arr.map(each => <Card
+   	 {sortedBlogs.map(each => <Card
    	 			key = {each}
    	    	 	id = {each}
    	    	 	className = 'card'
