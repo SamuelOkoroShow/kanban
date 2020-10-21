@@ -16,11 +16,11 @@ function StatusBar(props){
 	    </div>
 	    <div style={{alignItems:'center', display:'flex'}}>
 		    <a href="#" className = "sorts" style={{alignItems:'center', display:'flex'}}>
-		    <img src = {filter} style={{width:18, height:12}} alt = 'filter-logo'/>
+		    <img src = {filter} style={{width:13, height:12}} alt = 'filter-logo'/>
 		    <div className="statusBarTitle">Filter</div>
 		    </a>
 		    <a href="#" className = "sorts" style={{alignItems:'center', display:'flex'}}>
-		    <img src = {sort} style={{width:18, height:12}} alt = 'sort-logo'/>
+		    <img src = {sort} style={{width:13, height:12}} alt = 'sort-logo'/>
 		    <div className="statusBarTitle">Sort</div>
 		    </a>
 		    <a href="#" onClick = {() => {setOpen(!open)}} className = "sorts" style={{alignItems:'center', display:'flex'}}>
@@ -28,7 +28,7 @@ function StatusBar(props){
 		    <div className="statusBarTitle">Search</div>
 		    </a>
 	    </div>
-	    {open && <Search />}
+	    {open && <Search {...props} />}
     </div>
   )
 }

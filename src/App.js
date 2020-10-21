@@ -4,7 +4,7 @@ import './ui/bootstrap.css'
 import './App.css';
 import Statuses from './ui/statuses'
 import StatusBar from './ui/statusBar'
-import {CSSTransition} from 'react-transition-group'
+//import {CSSTransition} from 'react-transition-group'
 import firebase from "firebase/app" 
 
 
@@ -25,8 +25,11 @@ function Kanban() {
 	const [arr1State, setArr1] = useState(arr1); 
 	const [arr2State, setArr2] = useState(arr2); 
 	const [inRevisonArrState, setInRevisionArr] = useState(inRevisonArr); 
-	
+	const [searchField, setSearch] = useState("")
 
+const setSearchWords= (item) => {
+	console.log(item)
+}
 const addItem = (item) => {
     
  setArr2(arr2State.push(item).toString(10).replace(/\D/g, '0').split(''));
@@ -42,11 +45,11 @@ console.log(arr2State);
   };
 
 	return(<div className="App container">
-    <StatusBar />
+    <StatusBar setSearchWords={setSearchWords} />
 	    <div className='flexbox' >
-		   	<Statuses title = "Requested" arr = {arr1State} />
-		   	<Statuses title = "Edit Requested"  arr = {arr2State} updateArray={addItem} />
-		   	<Statuses title = "In Revision"  arr = {inRevisonArrState} updateArray={addItem} />
+		   	<Statuses color = "#D8D8D8;" title = "Requested" arr = {arr1State} />
+		   	<Statuses color = "#FFCCD3;" title = "Edit Requested"  arr = {arr2State} updateArray={addItem} />
+		   	<Statuses color = "#FBEDCE;" title = "In Revision"  arr = {inRevisonArrState} updateArray={addItem} />
 	    </div>
     </div>)
 }
