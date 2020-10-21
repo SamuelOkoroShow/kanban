@@ -16,6 +16,7 @@ const statuses = (props) => {
    	arr = {props.arr}
     {...props}
    	 >
+     
      {console.log(props)}
    	 {props.arr.map(each => <Card
    	 			key = {each}
