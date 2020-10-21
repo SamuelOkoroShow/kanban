@@ -5,6 +5,7 @@ import './App.css';
 import Statuses from './ui/statuses'
 import StatusBar from './ui/statusBar'
 import {CSSTransition} from 'react-transition-group'
+import firebase from "firebase/app" 
 
 
 var arr1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
@@ -14,52 +15,10 @@ var inRevisonArr = [1];
 
 function App() {
   return (
-    <Navbar>
-    <NavItem icon="🥰" />
-    <NavItem icon="🥰" />
-    <NavItem icon="🥰" />
-    <NavItem icon="😇">
-    	<DropdownMenu></DropdownMenu>
-    </NavItem>
-    </Navbar>
+    <Kanban />
   );
 }
 
-function DropdownMenu() {
-
-	const [activeMenu, setActiveMenu] = useState('main');
-
-	function DropdownItem(props) {
-		return(<a href="#" className='menu-item' onClick = {() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-		<span className='icon-button'>{props.leftIcon}</span>
-		{props.children}
-		<span className = "icon-button">{props.rightIcon}</span>
-		</a>
-		)
-	}
-
-	return(<div className="dropdown">
-	<CSSTransition in={activeMenu === 'main'} className='menu-primary' unmountOnExit timeout = {500}>
-		<div className = 'menu'>
-			<DropdownItem>My Profile</DropdownItem>
-			<DropdownItem
-				goToMenu = "settings"
-				leftIcon = "😇"
-				rightIcon = "😇">
-				</DropdownItem>
-		</div>
-		</CSSTransition>
-		<CSSTransition in={activeMenu === 'settings'} className="menu-secondary" unmountOnExit timeout = {500}>
-		<div className = 'menu'>
-			<DropdownItem
-				goToMenu = 'main'
-				rightIcon = "😇">
-				</DropdownItem>
-				<DropdownItem>Settings</DropdownItem>
-		</div>
-	</CSSTransition>
-	</div>)
-}
 
 
 function Kanban() {
@@ -68,15 +27,15 @@ function Kanban() {
 	const [inRevisonArrState, setInRevisionArr] = useState(inRevisonArr); 
 	
 
- const addItem = (item) => {
+const addItem = (item) => {
     
  setArr2(arr2State.push(item).toString(10).replace(/\D/g, '0').split(''));
-
  const index = arr1.indexOf(item);
+
 if (index > -1) {
-  arr1.splice(index, 1);
-}
-setArr1(arr1)
+  		arr1.splice(index, 1);
+	}
+		setArr1(arr1)
 
 // array = [2, 9]
 console.log(arr2State); 
@@ -90,26 +49,6 @@ console.log(arr2State);
 		   	<Statuses title = "In Revision"  arr = {inRevisonArrState} updateArray={addItem} />
 	    </div>
     </div>)
-}
-
-function NavItem(props) {
-	const [open, setOpen] = useState(false)
-	return(<li className = "nav-item">
-		<a href = "#" onClick = {() => setOpen(!open)} className="icon-button">
-		{props.icon}
-		</a>
-		{open && props.children}
-		</li>)
-}
-
-function Navbar(props) {
-	return (
-		<nav className='navbar'>
-			<ul className='navbar-nav'>
-			{props.children}
-			</ul>
-		</nav>
-		);
 }
 
 

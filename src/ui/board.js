@@ -10,7 +10,7 @@ const board = (props) => {
 
 		e.target.appendChild(card);
 		console.log(props);
-		props.updateArray(card.id);
+		//props.updateArray(card.id);
 	}
 
 	const dragOver = e => {

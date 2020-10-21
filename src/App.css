@@ -43,6 +43,19 @@ ul{
 .displayLine {
   display: inline-flex;
 }
+.search{
+  position: absolute;
+  background-color: #FCFCFC;
+  height: 100px;
+  padding:5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.265188);
+  top:48px;
+  width: 200px;
+  border-radius: 4px;
+  right: 40px;
+  z-index: 99;
+}
+
 .dropdown {
   position: absolute;
   top:48px;
@@ -189,6 +202,15 @@ color: #3F3939;
   margin-left: auto;
   justify-content:flex-end;
   
+}
+.sorts{
+  border-radius: 2px;
+  margin:10px;
+  padding: 5px;
+}
+
+.sorts:hover {
+  background-color: #f3f3f3;  
 }
 
 .icon-button {
