@@ -17,10 +17,31 @@ function App() {
     <NavItem icon="🥰" />
     <NavItem icon="🥰" />
     <NavItem icon="🥰" />
+    <NavItem icon="😇">
+    	<DropdownMenu></DropdownMenu>
+    </NavItem>
     </Navbar>
   );
 }
 
+function DropdownMenu() {
+	function DropdownItem(props) {
+		return(<a href="#" className='menu-item'>
+		<span className='icon-button'>{props.leftIcon}</span>
+		{props.children}
+		<span className = "icon-button">{props.rightIcon}</span>
+		</a>
+		)
+	}
+
+	return(<div className="dropdown">
+	<DropdownItem>My Profile</DropdownItem>
+	<DropdownItem
+		leftIcon = "😇"
+		rightIcon = "😇">
+		</DropdownItem>
+	</div>)
+}
 
 
 function Kanban() {
@@ -54,10 +75,12 @@ console.log(arr2State);
 }
 
 function NavItem(props) {
+	const [open, setOpen] = useState(false)
 	return(<li className = "nav-item">
-		<a href = "#" className="icon-button">
+		<a href = "#" onClick = {() => setOpen(!open)} className="icon-button">
 		{props.icon}
 		</a>
+		{open && props.children}
 		</li>)
 }
 

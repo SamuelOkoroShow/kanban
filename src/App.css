@@ -43,6 +43,17 @@ ul{
 .displayLine {
   display: inline-flex;
 }
+.dropdown {
+  position: absolute;
+  top:48px;
+  width: 300px;
+  transform: translateX(-45%);
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+}
 
 .eachLink {
   font-family: Roboto;
@@ -104,6 +115,23 @@ color: #3F3939;
   --speed:500ms;
 }
 
+.menu-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  padding: 0.5rem;
+}
+
+  .menu-item:hover {
+    background-color: #525357;
+  }
+
+  .icon-right{
+    margin-left: auto
+  }
+
   .navbar {
     height: var(--nav-size);
     background-color: var(--bg);
@@ -122,6 +150,7 @@ color: #3F3939;
   height: 100%;
   display: flex;
   flex-direction:row;
+  margin-left: auto;
   justify-content:flex-end;
   
 }
