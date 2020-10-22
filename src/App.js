@@ -26,6 +26,8 @@ function Kanban() {
 	const [arr2State, setArr2] = useState(arr2); 
 	const [inRevisonArrState, setInRevisionArr] = useState(inRevisonArr); 
 	const [searchField, setSearch] = useState("")
+	const [searchTags, setSearchTags] = useState([])
+	const [tags, setTags] = useState([])
 
 const setSearchWords= (item) => {
 	//console.log(item)
@@ -45,12 +47,18 @@ if (index > -1) {
 console.log(arr2State); 
   };
 
+  const setTagsArray = (tag) =>{
+  	setSearchTags([...searchTags, {id : searchTags.length, value: tag}])
+  	console.log(tag)
+  	setTags(tag)
+  }
+
 	return(<div className="App container">
-    <StatusBar setSearchWords={setSearchWords} />
+    <StatusBar setTags = {setTagsArray} setSearchWords={setSearchWords} />
 	    <div className='flexbox' >
-		   	<Statuses searchWords = {searchField} color = "#D8D8D8;" title = "Requested" arr = {arr1State} />
-		   	<Statuses color = "#FFCCD3;" title = "Edit Requested"  arr = {arr2State} updateArray={addItem} />
-		   	<Statuses color = "#FBEDCE;" title = "In Revision"  arr = {inRevisonArrState} updateArray={addItem} />
+		   	<Statuses searchTags = {tags} searchWords = {searchField} color = "#D8D8D8;" title = "Requested" arr = {arr1State} />
+		   	<Statuses searchTags = {tags} searchWords = {searchField} color = "#FFCCD3;" title = "Edit Requested"  arr = {arr2State} updateArray={addItem} />
+		   	<Statuses searchTags = {tags} searchWords = {searchField} color = "#FBEDCE;" title = "In Revision"  arr = {inRevisonArrState} updateArray={addItem} />
 	    </div>
     </div>)
 }

@@ -10,7 +10,11 @@
 }
 
 a {
-  color : var(--text-color);
+  color:#3F3939;
+  text-decoration: none;
+}
+
+a: hover {
   text-decoration: none;
 }
 body {
@@ -110,11 +114,18 @@ color: #3F3939;
   padding:15px;
 }
 
+
 .tickDropdownItem {
   display: flex;
   text-align:left;
   padding: 10px;
   align-items: center;
+
+}
+.tickDropdownItem:hover {
+  background-color: #F3F3F3;
+  color: #3F3939;
+
 }
 p{
   margin-bottom: 0;
@@ -268,7 +279,9 @@ p{
   color: #454444;
   margin: 5px;
 }
-.statusBarMenu
+.statusBarMenu {
+
+}
 
 .tbody {
   margin: 10px;

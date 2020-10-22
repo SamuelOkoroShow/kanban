@@ -3,6 +3,7 @@ import Board from './board'
 import Card from './card'
 const statuses = (props) => {
   let sortedBlogs = props.arr.filter((words) => {return words >= props.searchWords});
+  sortedBlogs = sortedBlogs.filter((words) => {return words >= props.searchTags});
   return (
 
     <div className='col-sm-4 statuses'>
@@ -12,19 +13,19 @@ const statuses = (props) => {
       </tbody>
       </table>
       <div style={{marginTop:37}}>
-      	<Board 
-   	id = "board-1"
-   	className = "board"
-   	arr = {props.arr}
+        <Board 
+    id = "board-1"
+    className = "board"
+    arr = {props.arr}
     {...props}
-   	 >
-   	 {sortedBlogs.map(each => <Card
-   	 			key = {each}
-   	    	 	id = {each}
-   	    	 	className = 'card'
-   	    	 	/>)}
-   	 	
-   	</Board>
+     >
+     {sortedBlogs.map(each => <Card
+          key = {each}
+            id = {each}
+            className = 'card'
+            />)}
+      
+    </Board>
       </div>
       </div>
   )
