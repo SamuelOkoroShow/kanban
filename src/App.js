@@ -39,9 +39,10 @@ const addItem = (item) => {
  const index = arr1.indexOf(item);
 
 if (index > -1) {
-  		arr1.splice(index, 1);
+	// removes array item from dragged location.
+  	arr1.splice(index, 1);
 	}
-		setArr1(arr1)
+		setArr1([...arr1])
 
 // array = [2, 9]
 console.log(arr2State); 
