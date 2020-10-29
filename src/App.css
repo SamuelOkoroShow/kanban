@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  min-width: 780px;
+  
+
 }
 
 
@@ -113,6 +114,8 @@ color: #3F3939;
   overflow: hidden;
   margin: 0 auto;
   padding:15px;
+   display: flex;
+  flex-wrap:wrap;
 }
 
 
