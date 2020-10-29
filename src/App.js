@@ -28,6 +28,7 @@ function Kanban() {
 	const [searchField, setSearch] = useState("")
 	const [searchTags, setSearchTags] = useState([])
 	const [tags, setTags] = useState([])
+	const [mouseDown, setMouseDown] = useState(false)
 
 const setSearchWords= (item) => {
 	//console.log(item)
@@ -57,12 +58,23 @@ console.log(arr2State);
   	setTags(tag)
   }
 
-	return(<div className="App container">
+  const mouseDownHandler = () =>{
+  	setMouseDown(true)
+  }
+  const mouseUpHandler = () =>{
+  	setMouseDown(false)
+  }
+
+
+	return(<div
+		onMouseDown = {mouseDownHandler}
+		onMouseUp = {mouseUpHandler}
+	 className="App container">
     <StatusBar setTags = {setTagsArray} setSearchWords={setSearchWords} />
 	    <div className='flexbox' >
-		   	<Statuses searchTags = {tags} searchWords = {searchField} color = "#D8D8D8;" title = "Requested" arr = {arr1State} />
-		   	<Statuses searchTags = {tags} searchWords = {searchField} color = "#FFCCD3;" title = "Edit Requested"  arr = {arr2State} updateArray={addItem} />
-		   	<Statuses searchTags = {tags} searchWords = {searchField} color = "#FBEDCE;" title = "In Revision"  arr = {inRevisonArrState} updateArray={addItem} />
+		   	<Statuses mouseDownState = {mouseDown} searchTags = {tags} searchWords = {searchField} color = "#D8D8D8;" title = "Requested" arr = {arr1State} />
+		   	<Statuses mouseDownState = {mouseDown} searchTags = {tags} searchWords = {searchField} color = "#FFCCD3;" title = "Edit Requested"  arr = {arr2State} updateArray={addItem} />
+		   	<Statuses mouseDownState = {mouseDown} searchTags = {tags} searchWords = {searchField} color = "#FBEDCE;" title = "In Revision"  arr = {inRevisonArrState} updateArray={addItem} />
 	    </div>
     </div>)
 }

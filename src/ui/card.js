@@ -1,6 +1,7 @@
-import React from 'react';
+ import React from 'react';
 
 const card = (props) => {
+    //1 this is the code for dragging cards
 	const dragStart = e => {
 		const target = e.target;
 
@@ -13,6 +14,18 @@ const card = (props) => {
 	const dragOver = e => {
 		e.stopPropagation()
 	}
+
+    //2 This is the code for highlighting multiple divs
+    const mouseDown = () => {
+        console.log("mousedown")
+    }
+        // I would have used redux to pass onmousedown from the root component
+    const mouseMove = () => {
+            console.log(props.mouseDownState)
+        if(props.mouseDownState){
+            console.log('item selected')
+        }
+    }
 	
   return (
     <div
@@ -21,6 +34,7 @@ const card = (props) => {
     onDragStart = {dragStart}
     onDragOver = {dragOver}
     draggable = 'true'
+    onMouseMove = {mouseMove}
     >
     <div className = "eachStatus"> 
       <p className = "eachTitle">Flow Meter Measurement Errors</p> 

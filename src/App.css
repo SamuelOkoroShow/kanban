@@ -114,8 +114,9 @@ color: #3F3939;
   overflow: hidden;
   margin: 0 auto;
   padding:15px;
-   display: flex;
+   /*display: flex;
   flex-wrap:wrap;
+  */
 }
 
 

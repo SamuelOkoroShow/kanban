@@ -22,6 +22,7 @@ const statuses = (props) => {
      {sortedBlogs.map(each => <Card
           key = {each}
             id = {each}
+            mouseDownState = {props.mouseDownState}
             className = 'card'
             />)}
       
